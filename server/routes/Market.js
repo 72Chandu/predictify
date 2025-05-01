@@ -1,5 +1,5 @@
 const express = require("express");
-const Market = require("../models/Market");
+const Market = require("../models/market");
 const router = express.Router();
 
 // Create market

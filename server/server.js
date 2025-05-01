@@ -9,7 +9,7 @@ app.use(express.json());
 
 // Routes
 const authRoutes = require("./routes/auth");
-const marketRoutes = require("./routes/Market");
+const marketRoutes = require("./routes/market");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/market", marketRoutes);
