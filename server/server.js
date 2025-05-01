@@ -1,21 +1,22 @@
-const express = require("express");
-const mongoose = require("mongoose");
-const cors = require("cors");
-require("dotenv").config();
+const express = require('express');
+const mongoose = require('mongoose');
+const cors = require('cors');
+
+const authRoutes = require('./routes/auth');
+app.use('/api/auth', authRoutes);
+
+const marketRoutes = require('./routes/market');
 
 const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Routes
-const authRoutes = require("./routes/auth");
-const marketRoutes = require("./routes/market");
-
-app.use("/api/auth", authRoutes);
-app.use("/api/market", marketRoutes);
-
-mongoose.connect(process.env.MONGO_URI)
-  .then(() => console.log("MongoDB Connected"))
+// Replace with your MongoDB Atlas URI
+mongoose.connect(process.env.MONGO_URI || 'your-atlas-uri-here')
+  .then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
 
-app.listen(5000, () => console.log("Server running on port 5000"));
+app.use('/api/markets', marketRoutes);
+
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`));

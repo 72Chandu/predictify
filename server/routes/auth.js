@@ -1,28 +1,55 @@
-const express = require("express");
-const bcrypt = require("bcryptjs");
-const jwt = require("jsonwebtoken");
-const User = require("../models/User"); // you'll create this next
-require("dotenv").config();
-
+const express = require('express');
+const jwt = require('jsonwebtoken');
+const User = require('../models/user');
 const router = express.Router();
 
-// Register
-router.post("/register", async (req, res) => {
-  const { name, email, password } = req.body;
-  const hashedPassword = await bcrypt.hash(password, 10);
-  const user = await User.create({ name, email, passwordHash: hashedPassword });
-  res.status(201).json(user);
+const JWT_SECRET = process.env.JWT_SECRET || 'secret123';
+
+// Generate JWT
+const generateToken = (user) => {
+  return jwt.sign(
+    { id: user._id, username: user.username },
+    JWT_SECRET,
+    { expiresIn: '7d' }
+  );
+};
+
+// Signup
+router.post('/signup', async (req, res) => {
+  const { username, email, password } = req.body;
+  try {
+    const userExists = await User.findOne({ email });
+    if (userExists) return res.status(400).json({ error: 'Email already in use' });
+
+    const user = new User({ username, email, password });
+    await user.save();
+
+    res.status(201).json({ 
+      token: generateToken(user), 
+      user: { id: user._id, username: user.username } 
+    });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
+  }
 });
 
 // Login
-router.post("/login", async (req, res) => {
+router.post('/login', async (req, res) => {
   const { email, password } = req.body;
-  const user = await User.findOne({ email });
-  if (!user || !(await bcrypt.compare(password, user.passwordHash))) {
-    return res.status(401).json({ msg: "Invalid credentials" });
+  try {
+    const user = await User.findOne({ email });
+    if (!user) return res.status(400).json({ error: 'Invalid email or password' });
+
+    const isMatch = await user.matchPassword(password);
+    if (!isMatch) return res.status(400).json({ error: 'Invalid email or password' });
+
+    res.json({ 
+      token: generateToken(user), 
+      user: { id: user._id, username: user.username } 
+    });
+  } catch (err) {
+    res.status(400).json({ error: err.message });
   }
-  const token = jwt.sign({ id: user._id }, process.env.JWT_SECRET, { expiresIn: "1d" });
-  res.json({ token });
 });
 
 module.exports = router;
