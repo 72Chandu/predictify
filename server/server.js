@@ -2,21 +2,22 @@ const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
-
+const cookieParser = require('cookie-parser');
+const app = express();
 dotenv.config(); // Load environment variables at the start
 
-const app = express();
 
+app.use(cookieParser())
 // Import Routes
 const marketRoutes = require('./routes/market');
-const authRoutes = require('./routes/auth');
+const userRoutes = require('./routes/user');
 
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Routes
-app.use('/api/auth', authRoutes);
+app.use("/api/v1",userRoutes);
 app.use('/api/markets', marketRoutes);
 
 // MongoDB Connection
