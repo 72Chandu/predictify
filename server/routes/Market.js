@@ -5,17 +5,18 @@ const User = require('../models/User');
 const Transaction = require('../models/transaction');
 const protect = require('../middleware/authMiddleware');
 
-// 1. Create a new market (protected)
+// 1. Create a new market (protected route)
 router.post('/create', protect, async (req, res) => {
   try {
     const market = new Market({
       ...req.body,
-      createdBy: req.user._id
+      createdBy: req.user._id, // Set creator from logged-in user
     });
+
     await market.save();
-    res.status(201).json(market);
+    res.status(201).json(market); // Send back created market
   } catch (err) {
-    res.status(400).json({ error: err.message });
+    res.status(400).json({ error: err.message }); // Error handling
   }
 });
 
@@ -69,7 +70,7 @@ router.post('/:id/bet', protect, async (req, res) => {
       type: 'bet',
       amount: -amount,
       marketId: market._id,
-      description: `Bet ${amount} on '${option}' in '${market.title}'`
+      description: `Bet ${amount} on '${option}' in '${market.title}'`,
     });
 
     // Add bet to market
@@ -120,7 +121,7 @@ router.post('/:id/resolve', protect, async (req, res) => {
           type: 'win',
           amount: roundedPayout,
           marketId: market._id,
-          description: `Won ${roundedPayout} in '${market.title}'`
+          description: `Won ${roundedPayout} in '${market.title}'`,
         });
       }
     }

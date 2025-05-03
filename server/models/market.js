@@ -55,6 +55,10 @@ const marketSchema = new mongoose.Schema({
     type: String,
     default: null,
   },
+  autoResolve: { // Moved inside the schema
+    type: Boolean,
+    default: false,
+  },
   createdAt: {
     type: Date,
     default: Date.now,
