@@ -1,0 +1,192 @@
+[33mcommit 0fd5fde85c631450d127edac6f17cd3524e81da4[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Mon May 5 17:49:45 2025 +0530
+
+    resolving conflict
+
+[33mcommit 4630714973b125256ce2bce8e47fa56ee19adb0b[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Mon May 5 17:48:55 2025 +0530
+
+    resolving conflict
+
+[33mcommit c6d51e884f19ed8a39af3edcb1d5b54a821d1021[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Mon May 5 17:36:44 2025 +0530
+
+    transaction done
+
+[33mcommit 97cdb5448f6d2db96bec17e3b92a790aba14a8c1[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Sat May 3 19:03:29 2025 +0530
+
+    adding functionlity in user
+
+[33mcommit def6839a4059598ab8039030e4d87b7475cedb6e[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Fri May 2 10:21:47 2025 +0530
+
+    testing stash
+
+[33mcommit 09bded382829b6d299a3cee0cf0df975bec13ead[m
+Merge: 62a4bf6 ef9ccd0
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Fri May 2 10:17:42 2025 +0530
+
+    Merge https://github.com/imrituraj/predictify
+    updated the market controller
+
+[33mcommit 62a4bf6c002b8086a080001183fab3e86c0baa76[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Fri May 2 10:15:12 2025 +0530
+
+    test
+
+[33mcommit ef9ccd00e8592740509f206300e7abc57ec1f59b[m
+Merge: 15182b2 ded4d8d
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Fri May 2 10:09:32 2025 +0530
+
+    Merge pull request #7 from 72Chandu/main
+    
+    user registration is done
+
+[33mcommit ded4d8daa5ffced511065341a6b88d1614eb407a[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Fri May 2 09:20:39 2025 +0530
+
+    logout is done
+
+[33mcommit 5902aec3a5a9e8f3095e8ac33dbe4afe42ad901b[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Fri May 2 09:05:25 2025 +0530
+
+    login is done
+
+[33mcommit 5dfb157c9169520611ffcf5d46386a17bb55c986[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Fri May 2 08:29:16 2025 +0530
+
+    user registration is done
+
+[33mcommit 15182b2b607219dee86b395fc70a6ba4f10d6818[m
+Merge: dddee25 cabd950
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Thu May 1 23:28:31 2025 +0530
+
+    Merge pull request #6 from 72Chandu/main
+    
+    modified user model and correct server
+
+[33mcommit cabd950cdc5d42201c1c16a079c3669997347fd5[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Thu May 1 23:24:36 2025 +0530
+
+    modeified user model and correct server
+
+[33mcommit dddee25c05d179cd3b372d3fbf05f87edc1d452a[m
+Merge: 9e02b8f 576a119
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Thu May 1 21:23:08 2025 +0530
+
+    Merge pull request #5 from 72Chandu/main
+    
+    env updated
+
+[33mcommit 576a1193c72ec72f0b7b91c3d08e165d9b9887f2[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Thu May 1 21:02:01 2025 +0530
+
+    Stopped tracking .env file
+
+[33mcommit 897d795ec8da42d24a1aa89d9e76c3c5e93ca7ac[m
+Author: Chandrashekhar <130296606+72Chandu@users.noreply.github.com>
+Date:   Thu May 1 20:59:03 2025 +0530
+
+    solving .env issue
+
+[33mcommit 9e02b8fd524ad40d5c931bdca463cb15be381d92[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 20:40:26 2025 +0530
+
+    fixed the import model issue
+
+[33mcommit 44a4a63950bdc2974b2836bb73204f4623bec394[m
+Merge: cb76eee 6444de6
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 20:19:41 2025 +0530
+
+    Merge branch 'main' of https://github.com/imrituraj/predictify
+
+[33mcommit cb76eeedd6ee980dc12d72e6fd1edcc9769efd44[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 20:17:40 2025 +0530
+
+    added transaction history
+
+[33mcommit 6444de658bf3edb89d39c46f75c331f8c1b0b913[m
+Merge: e13a4fa 8846a54
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Thu May 1 14:31:10 2025 +0530
+
+    Merge pull request #2 from aryanul/main
+    
+    added react project for client side
+
+[33mcommit 8846a54954aa69cd4ebd4f26309148549d717a0b[m
+Merge: 64cb356 e13a4fa
+Author: Khandakar Aryanul Haque <123832026+aryanul@users.noreply.github.com>
+Date:   Thu May 1 13:14:38 2025 +0530
+
+    Merge branch 'imrituraj:main' into main
+
+[33mcommit 64cb356c5f85a20b0be848e34b9de488436ccab1[m
+Author: Khandakar Aryanul Haque <aryanul2004@gmail.com>
+Date:   Thu May 1 13:14:08 2025 +0530
+
+    added client side react project
+
+[33mcommit e13a4fa0744752f12bffb34153ef0b5bbf6a1d6b[m
+Merge: 812d61c cce52f5
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Thu May 1 13:05:23 2025 +0530
+
+    Merge pull request #1 from aryanul/main
+    
+    added gitignore
+
+[33mcommit cce52f5b6972a7332b42e9b0fa7ea85fbe95443f[m
+Author: Khandakar Aryanul Haque <aryanul2004@gmail.com>
+Date:   Thu May 1 13:00:07 2025 +0530
+
+    added gitignore
+
+[33mcommit 812d61c22539e93d78ee651c96d43ff587a743d9[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 12:56:59 2025 +0530
+
+    added client side
+
+[33mcommit 103c7d91202ec6f634b64b9651bf5e3f2146b8de[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 12:23:37 2025 +0530
+
+    file error fixed in market.js
+
+[33mcommit 3fc75076beda296afc68098e8ac8c570137c84f7[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 11:53:36 2025 +0530
+
+    added routes
+
+[33mcommit 479500b9dfdf12eddda3b161bca454f2d044d51c[m
+Author: imrituraj <ritur.dev@gmail.com>
+Date:   Thu May 1 11:34:30 2025 +0530
+
+    initial commit
+
+[33mcommit b664009c216e024655275fa01d7d23a47e8927a5[m
+Author: Ritu Raj <121354058+imrituraj@users.noreply.github.com>
+Date:   Thu May 1 11:02:46 2025 +0530
+
+    Initial commit
