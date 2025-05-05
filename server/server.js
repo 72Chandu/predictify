@@ -11,7 +11,7 @@ app.use(cookieParser())
 // Import Routes
 const marketRoutes = require('./routes/market');
 const userRoutes = require('./routes/user');
-
+const paymentRoutes=require('./routes/transaction')
 // Middleware
 app.use(cors());
 app.use(express.json());
@@ -19,6 +19,7 @@ app.use(express.json());
 // Routes
 app.use("/api/v1",userRoutes);
 app.use('/api/markets', marketRoutes);
+app.use('/api/v1/payment', paymentRoutes);
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI;

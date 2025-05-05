@@ -1,38 +1,16 @@
 const mongoose = require('mongoose');
 
-const betSchema = new mongoose.Schema({
-  userId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'User',
-    required: true,
-  },
-  option: {
-    type: String,
-    required: true,
-  },
-  amount: {
-    type: Number,
-    required: true,
-    min: 1,
-  },
-  placedAt: {
-    type: Date,
-    default: Date.now,
-  }
-});
-
 const marketSchema = new mongoose.Schema({
+  description: String, //about game 
   title: {
     type: String,
     required: true,
   },
-  description: String,
-  options: {
+ options: {
     type: [String],
     required: true,
     validate: v => v.length >= 2 // at least two options
   },
-  bets: [betSchema],
   category: {
     type: String,
     enum: ['crypto', 'sports', 'politics', 'tech', 'other'],
