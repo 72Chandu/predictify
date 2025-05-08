@@ -9,17 +9,19 @@ dotenv.config(); // Load environment variables at the start
 
 app.use(cookieParser())
 // Import Routes
-const marketRoutes = require('./routes/market');
+// const marketRoutes = require('./routes/market');
 const userRoutes = require('./routes/user');
 const paymentRoutes=require('./routes/transaction')
+const bettingRoutes=require('./routes/betting')
 // Middleware
 app.use(cors());
 app.use(express.json());
 
 // Routes
 app.use("/api/v1",userRoutes);
-app.use('/api/markets', marketRoutes);
+// app.use('/api/markets', marketRoutes);
 app.use('/api/v1/payment', paymentRoutes);
+app.use('/api/v1/bet',  bettingRoutes);
 
 // MongoDB Connection
 const MONGO_URI = process.env.MONGO_URI;

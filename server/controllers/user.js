@@ -4,12 +4,12 @@ const crypto = require('crypto');
 
 exports.register = async (req, res) => {
     try {
-        const { username, email, password} = req.body;
+        const { username, email, password,role} = req.body;
         let user = await User.findOne({ email });
         if (user) {
             return res.status(400).json({ success: false, message: "User already exists" });
         }
-        user = await User.create({username,email,password,});
+        user = await User.create({username,email,password,role});
         const token = await user.getJwtToken();
         const cookieExpireDays = Number(process.env.COOKIE_EXPIRES_TIME);
 
@@ -166,5 +166,30 @@ exports.resetPassword = async (req, res) => {
         res.status(200).json({success: true, message: "Password updated successfully", });
     } catch (error) {
         res.status(500).json({success: false, message: error.message,});
+    }
+};
+
+// Verify admin
+exports.deleteUser = async (req, res) => {
+    try {
+        const adminId = req.user.id;
+        
+        const admin = await User.findById(adminId);
+        if (!admin || admin.role !== "admin") {
+            return res.status(403).json({ success: false, message: "Access denied. Admins only." });
+        }
+
+        const userId = req.params.id;
+        const user = await User.findById(userId);
+
+        if (!user) {
+            return res.status(404).json({ success: false, message: "User not found" });
+        }
+
+        await user.deleteOne();
+
+        res.status(200).json({ success: true, message: "User deleted successfully" });
+    } catch (error) {
+        res.status(500).json({ success: false, message: error.message });
     }
 };
