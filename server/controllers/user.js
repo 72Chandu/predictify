@@ -11,7 +11,7 @@ exports.register = async (req, res) => {
         }
         user = await User.create({username,email,password,});
         const token = await user.getJwtToken();
-        const cookieExpireDays = Number(process.env.COOKIE_EXPIRES_TIME) || 7;
+        const cookieExpireDays = Number(process.env.COOKIE_EXPIRES_TIME);
 
         const options = {
             expires: new Date(Date.now() + cookieExpireDays * 24 * 60 * 60 * 1000),
@@ -39,7 +39,7 @@ exports.login = async (req, res) => {
             return res.status(401).json({ success: false, message: "Invalid email or password" });
         }
         const token = await user.getJwtToken();
-        const cookieExpireDays = Number(process.env.COOKIE_EXPIRES_TIME) || 7;
+        const cookieExpireDays = Number(process.env.COOKIE_EXPIRES_TIME);
 
         const options = {
             expires: new Date(Date.now() + cookieExpireDays * 24 * 60 * 60 * 1000),
@@ -89,6 +89,24 @@ exports.myProfile = async (req, res) => {
         res.status(500).json({ success: false, message: error.message });
     }
 }
+
+// Admin view user details
+exports.getAllUsers = async (req, res) => {
+    try {
+        const adminId = req.user.id;
+
+        // Verify admin
+        const admin = await User.findById(adminId);
+        if (!admin || admin.role !== "admin") {
+            return res.status(403).json({ error: "Access denied. Admins only." });
+        }
+
+        const users = await User.find({}, "-password"); // Exclude password for security
+        res.status(200).json(users);
+    } catch (error) {
+        res.status(500).json({ error: error.message });
+    }
+};
 
 exports.updateProfile = async (req, res) => {
     try {
